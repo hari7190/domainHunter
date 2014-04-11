@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Domain Hunter</title>
+
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="this is my page">
+	<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+	<!-- Style sheets -->
+	<link rel="stylesheet" type="text/css" href="/domainHunter/styles/global.css">
+	
+	<!-- Java scripts -->
+	<script type="text/javascript" src="/domainHunter/js/libs/jQueryApril72014.js"></script>
+	
+	<script>
+		ri = {};
+		ri.globals = {};
+		ri.common = {};
+		ri.globals.apipath = "/catchme";
+		ri.globals.sessionKey = "";
+		ri.globals.usejsonp = false;
+		ri.globals.httpmethod = "GET";
+		
+		var tmp = new ri.common.api;
+		tmp.setMethod('isavailable');
+		tmp.addArgument('user_id','#request.s.user_id#');
+		tmp.addArgument('includeFacts','1');
+
+		$(document).ready(function(){
+			$('#btn_submit').click(function(){
+				tmp.runMethod({},function(response){
+					console.log(response);					
+				});				
+			});
+		});
+	</script>
+</head>
+
+<body>
+	
+	<h2>Domain Hunter</h2>
+	<div id="newform">
+		<input type="text" name="domain_request" id="domain_request"
+			placeholder=" enter domain name here" required><br> 
+		<input type="submit" value="So..any luck?" id="btn_submit">
+	</div>
+
+	<div class="available" >Congratulations!! It's Available</div>
+
+
+</body>
+</html>

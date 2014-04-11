@@ -1,0 +1,91 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	font: 300 14px "Open Sans", Arial, sans-serif;
+	color: #000;
+	background-color: #F7F7F7;
+	/* Add your own image here - background-image: url(images/yourimage.jpg);*/
+	margin-top: 50px;
+}
+
+#newform {
+	width: 470px;
+	height: auto;
+	/* Add your own image here - background-image: url(images/yourimage.jpg); */
+	margin: 0 auto;
+	padding: 0px 1%;
+	box-shadow: 5px 5px 0px #AAA;
+	border-radius: 5px;
+}
+
+h2 {
+	font-size: 90px;
+	color: #FF9900;
+	text-shadow: 2px 2px #222;
+	font-family: "Oleo Script";
+	border-bottom: 2px solid #FFF;
+	text-align: center;
+	margin: 0px 0px 5px 0px;
+}
+
+label {
+	font-size: 18px;
+	color: #FFFFFF;
+	font-weight: 600;
+	text-shadow: 1px 1px #333;
+}
+
+input {
+	width: 99%;
+	height: 40px;
+	margin: 5px 0px 10px 0px;
+	font: 300 24px "Open Sans", Arial, sans-serif;
+	color: #CCC;
+}
+
+input[type=submit] {
+	/*background-color: #C13A40;
+	height: 50px;
+	width: 100%;
+	border: none;
+	font-weight: 400;
+	color: #FFFFFF;
+	font-style: italic;
+	background-color: #FF9900;
+	letter-spacing: 2px;*/
+}
+
+.available{
+	font-size: 28px;
+	color: green;
+	margin-left: 37%;
+	margin-top: 20px;	
+	display:none;
+}
+
+.notavailable{
+	font-size: 28px;
+	color: red;
+	margin-left: 40%;
+	margin-top: 20px;	
+	display:none;	
+}
+
+.results{
+	border: 1px solid red;
+    margin-top: 50px;
+    max-height: 300px;
+    overflow: scroll;
+    padding: 7px;
+    width: 608px;
+    display: none;
+}
+	
+.infoHeading{
+	font-size: 23px;
+    font-weight: bold;
+    margin-top: 25px;
+	display: none;
+}
+
+.borderBelow{border-bottom: 2px solid #FFFFFF;}

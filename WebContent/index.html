@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Domain Hunter</title>
+
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="this is my page">
+	<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+	<!-- Style sheets -->
+	<link rel="stylesheet" type="text/css" href="/domainHunter/styles/global.css">
+	
+	<!-- Java scripts -->
+	<script type="text/javascript" src="/domainHunter/js/libs/jQueryApril72014.js"></script>
+	
+	
+	
+	<script>
+		ri = {};
+		ri.globals = {};
+		ri.common = {};
+		ri.globals.apipath = "/domainHunter/";
+		ri.globals.sessionKey = "";
+		ri.globals.usejsonp = false;
+		ri.globals.httpmethod = "POST";
+	</script>
+	<script type="text/javascript" src="js/apiHandler.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#btn_submit').click(function() {
+				$('.available, .notavailable').hide();
+				var tmp = new ri.common.api;
+				tmp.setMethod('catchme');
+				tmp.addArgument('method', 'Availability');
+				tmp.addArgument('domain', $("#domain_request").val());
+				tmp.runMethod({}, function(response) {
+					//availability						
+					if (response) {
+						console.log(response.not_available);
+						if (response.not_available == false){
+							$('.available').show();
+							$('.results').html('');
+						}							
+						else{
+							$('.notavailable').show();
+							$('.results, .infoHeading').show(); 
+							$('.results').html('<pre>' + response.query + '</pre>');
+						}
+					}
+				});
+			});
+		});
+	</script>
+</head>
+
+<body>
+	
+	<!-- <h2>Domain Hunter</h2> -->
+	<div id="newform">
+		<input type="text" name="enter" id="domain_request"
+			placeholder=" enter domain name here" required><br> 
+		<input type="submit" value="So..any luck?" id="btn_submit">
+	</div>
+
+	<div class="available" >Congratulations!! It's Available</div>
+	<div class="notavailable" >Sorry!! It's Already Taken.</div>
+	<div class="borderBelow"></div>
+	<div class="infoHeading">Registration Info</div>
+	<div class="results"></div>
+</body>
+</html>
